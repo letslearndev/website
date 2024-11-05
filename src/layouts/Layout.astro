@@ -1,0 +1,251 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+// Supports weights 100-900
+import '@fontsource-variable/inter';
+import '@/styles/globals.css'
+
+import { Button } from "@/components/ui/button";
+import {
+  BookOpen,
+  Menu
+} from "@/components/icons.tsx";
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Where developers learn, share, grow" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+        <div class="flex flex-col min-h-screen bg-gradient-to-b from-purple-50 via-pink-50 to-blue-50">
+            <header class="px-4 lg:px-6 h-16 flex items-center backdrop-blur-sm bg-white/30 sticky top-0 z-50">
+            <a class="flex items-center justify-center" href="/">
+                <BookOpen className="h-8 w-8 text-purple-600" />
+                <span class="ml-2 text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
+                    Let's Learn Dev
+                </span>
+            </a>
+            <nav class="ml-auto hidden md:flex gap-4 sm:gap-6">
+            <a
+                class="text-sm font-medium hover:text-purple-600 transition-colors"
+                href="/blog"
+            >
+                Blogs
+            </a>
+            <!-- <a
+                class="text-sm font-medium hover:text-purple-600 transition-colors"
+                href="/course"
+            >
+                Courses
+            </a> -->
+            <!-- <a
+                class="text-sm font-medium hover:text-purple-600 transition-colors"
+                href="#"
+            >
+                About
+            </a>
+            <a
+                class="text-sm font-medium hover:text-purple-600 transition-colors"
+                href="#"
+            >
+                Contact
+            </a> -->
+            </nav>
+            <!-- <Button variant="ghost" size="icon" class="md:hidden ml-auto">
+            <Menu class="h-6 w-6" />
+            </Button> -->
+            </header>
+    		<slot />
+       	    <!-- <footer class="w-full py-6 bg-gray-100 flex justify-center">
+                <div class="container px-4 md:px-6">
+                <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+                    <div class="space-y-2">
+                    <h3 class="text-lg font-bold">About Us</h3>
+                    <ul class="space-y-1">
+                        <li>
+                        <a
+                            class="text-sm hover:text-purple-600 transition-colors"
+                            href="#"
+                        >
+                            Our Story
+                        </a>
+                        </li>
+                        <li>
+                        <a
+                            class="text-sm hover:text-purple-600 transition-colors"
+                            href="#"
+                        >
+                            Team
+                        </a>
+                        </li>
+                        <li>
+                        <a
+                            class="text-sm hover:text-purple-600 transition-colors"
+                            href="#"
+                        >
+                            Careers
+                        </a>
+                        </li>
+                    </ul>
+                    </div>
+                    <div class="space-y-2">
+                    <h3 class="text-lg font-bold">Courses</h3>
+                    <ul class="space-y-1">
+                        <li>
+                        <a
+                            class="text-sm hover:text-purple-600 transition-colors"
+                            href="#"
+                        >
+                            Web Development
+                        </a>
+                        </li>
+                        <li>
+                        <a
+                            class="text-sm hover:text-purple-600 transition-colors"
+                            href="#"
+                        >
+                            Data Science
+                        </a>
+                        </li>
+                        <li>
+                        <a
+                            class="text-sm hover:text-purple-600 transition-colors"
+                            href="#"
+                        >
+                            Digital Marketing
+                        </a>
+                        </li>
+                    </ul>
+                    </div>
+                    <div class="space-y-2">
+                    <h3 class="text-lg font-bold">Resources</h3>
+                    <ul class="space-y-1">
+                        <li>
+                        <a
+                            class="text-sm hover:text-purple-600 transition-colors"
+                            href="#"
+                        >
+                            Blog
+                        </a>
+                        </li>
+                        <li>
+                        <a
+                            class="text-sm hover:text-purple-600 transition-colors"
+                            href="#"
+                        >
+                            Tutorials
+                        </a>
+                        </li>
+                        <li>
+                        <a
+                            class="text-sm hover:text-purple-600 transition-colors"
+                            href="#"
+                        >
+                            FAQs
+                        </a>
+                        </li>
+                    </ul>
+                    </div>
+                    <div class="space-y-2">
+                    <h3 class="text-lg font-bold">Connect</h3>
+                    <ul class="space-y-1">
+                        <li>
+                        <a
+                            class="text-sm hover:text-purple-600 transition-colors"
+                            href="#"
+                        >
+                            Contact Us
+                        </a>
+                        </li>
+                        <li>
+                        <a
+                            class="text-sm hover:text-purple-600 transition-colors"
+                            href="#"
+                        >
+                            Support
+                        </a>
+                        </li>
+                        <li>
+                        <a
+                            class="text-sm hover:text-purple-600 transition-colors"
+                            href="#"
+                        >
+                            Newsletter
+                        </a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="mt-8 border-t pt-8 flex flex-col sm:flex-row justify-between items-center">
+                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                    © 2024 Let's Learn. All rights reserved.
+                    </p>
+                    <nav class="flex gap-4 sm:gap-6 mt-4 sm:mt-0">
+                    <a
+                        class="text-xs hover:text-purple-600 transition-colors"
+                        href="#"
+                    >
+                        Terms of Service
+                    </a>
+                    <a
+                        class="text-xs hover:text-purple-600 transition-colors"
+                        href="#"
+                    >
+                        Privacy Policy
+                    </a>
+                    <a
+                        class="text-xs hover:text-purple-600 transition-colors"
+                        href="#"
+                    >
+                        Cookie Policy
+                    </a>
+                    </nav>
+                </div>
+                </div>
+            </footer> -->
+    	</div>
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		/* font-family: 'Inter Variable', system-ui, sans-serif; */
+		background: #13151a;
+	}
+	html,body {
+	    height: 100%;
+		width: 100%;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+</style>
