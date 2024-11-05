@@ -123,7 +123,7 @@ const technologies = [
   { icon: siIonic, name: "Ionic", url: "https://ionicframework.com" },
 ];
 
-const TechIcon: React.FC<{ icon: SimpleIcons.SimpleIcon; url: string }> = ({
+const TechIcon: React.FC<{ icon: { path: string }; url: string }> = ({
   icon,
   url,
 }) => (
